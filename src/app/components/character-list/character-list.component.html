@@ -1,0 +1,15 @@
+<div class="search-bar">
+    <input type="text" [value]="searchName" (input)="search()" placeholder="Search characters">
+  </div>
+  <div class="character-grid">
+    <div *ngFor="let character of characters" class="character-card">
+      <img [src]="character.image" alt="{{ character.name }}">
+      <h2>{{ character.name }}</h2>
+      <p>Origin: {{ character.origin.name }}</p>
+      <p>Status: {{ character.status }}</p>
+    </div>
+  </div>
+  <div infinite-scroll (scrolled)="onScroll()">
+    <p>Loading more characters...</p>
+  </div>
+  
