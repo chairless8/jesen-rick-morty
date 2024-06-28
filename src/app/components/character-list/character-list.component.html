@@ -1,15 +1,29 @@
-<div class="search-bar">
-    <input type="text" [value]="searchName" (input)="search()" placeholder="Search characters">
+<div class="container mx-auto p-4 full-h">
+  <!-- Barra de Búsqueda -->
+  <div class="search-bar mb-4 flex justify-center">
+    <input
+      type="text"
+      [(ngModel)]="searchName"
+      (input)="search()"
+      placeholder="Search characters"
+      class="border border-gray-300 rounded-lg px-4 py-2 w-full max-w-md shadow-lg"
+    >
   </div>
-  <div class="character-grid">
-    <div *ngFor="let character of characters" class="character-card">
-      <img [src]="character.image" alt="{{ character.name }}">
-      <h2>{{ character.name }}</h2>
-      <p>Origin: {{ character.origin.name }}</p>
-      <p>Status: {{ character.status }}</p>
+
+  <!-- Grid de Personajes -->
+  <div class="character-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let character of characters" class="character-card bg-gradient-to-r shadow-lg rounded-lg p-4 flex" (click)="goToCharacterDetail(character.id)">
+      <img [src]="character.image" alt="{{ character.name }}" class="w-1/3 object-cover rounded-md imageCustom">
+      <div class="ml-4 w-2/3 text-left">
+        <h4 class="font-bold text-white">{{ character.name }}</h4>
+        <p class="text-gray-200">Origin: {{ character.origin.name }}</p>
+        <p class="text-gray-200">Status: {{ character.status }}</p>
+        <p class="text-gray-200">Episodes: {{ character.episode.length }}</p>
+      </div>
     </div>
   </div>
-  <div infinite-scroll (scrolled)="onScroll()">
-    <p>Loading more characters...</p>
+
+  <!-- Cargando más personajes -->
+  <div infinite-scroll (scrolled)="onScroll()" class="flex justify-center mt-4">
   </div>
-  
+</div>

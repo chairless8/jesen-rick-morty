@@ -1,0 +1,25 @@
+.container {
+    background-image: url('/assets/background.gif'); /* Asegúrate de que la imagen esté en la carpeta de assets */
+    background-position: center;
+    background-size: contain;
+    min-height: 100%; /* Ocupa toda la altura de la pantalla */
+    width: 100%; /* Ocupa toda la anchura de la pantalla */
+    max-width: initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  app-header {
+    width: 100%;
+  }
+
+  .glassmorphism{
+    align-items: flex-start;
+    border-radius: 0%;
+
+    div {
+      min-width: 100%;
+    }
+  }

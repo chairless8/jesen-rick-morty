@@ -1,1 +1,26 @@
-<p>character-detail works!</p>
+<div class="details-container">
+    <div *ngIf="character" class="character-detail text-left">
+      <div class="image-container mb-4">
+        <img [src]="character.image" alt="{{ character.name }}" class="w-1/4 h-auto rounded-md mx-auto">
+      </div>
+
+      <h1 class="text-3xl font-bold mb-4">{{ character.name }}</h1>
+      <div class="info-container space-y-2">
+        <p><span class="font-bold">Origin:</span> {{ character.origin.name }}</p>
+        <p><span class="font-bold">Status:</span> {{ character.status }}</p>
+        <p><span class="font-bold">Species:</span> {{ character.species }}</p>
+        <p><span class="font-bold">Gender:</span> {{ character.gender }}</p>
+        <p><span class="font-bold">Location:</span> {{ character.location.name }}</p>
+        <div>
+          <p class="font-bold"><i class="fas fa-video"></i> Episodes:</p>
+          <div class="episode-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div *ngFor="let episode of episodes" class="episode-card text-white p-4 rounded-lg shadow-lg">
+              <p class="font-bold">{{ episode.name }}</p>
+              <p>Air Date: {{ episode.air_date }}</p>
+              <p>Episode: {{ episode.episode }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
